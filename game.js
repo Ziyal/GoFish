@@ -1,6 +1,6 @@
 
 function Game(){
-  this.player = new Player("Player 1");
+  this.player = new Player("Player");
   this.cpu = new Player("CPU");
   this.myDeck = new Deck();
   this.myDeck.reset();
@@ -18,7 +18,7 @@ function displayHand(pH){
   for(i = 0; i < pH.length; i++){
     var newHTML = "";
     newHTML += "<div class='card' alt='" + i + "'>";
-    newHTML += "<h2>" + pH[i].name + " of " + pH[i].suit + "</h2>";
+    newHTML += "<img src='images/" + pH[i].val + pH[i].suit + ".png'>";
     newHTML += "</div>";
     $("#playerHand").append(newHTML)
   };
@@ -27,11 +27,9 @@ function displayHand(pH){
 function displayScore(player, cpu){
   console.log("appendstuff")
   $("#scores").empty();
-  $("#scores").append("<p>" + player.name + " score: " + player.matches + "</p>");
-  $("#scores").append("<p>" + cpu.name + " score: " + cpu.matches + "</p>");
+  $("#scores").append("<p class='scoreText'>" + player.name + " score: " + player.matches + "</p>");
+  $("#scores").append("<p class='scoreText'>" + cpu.name + " score: " + cpu.matches + "</p>");
 }
-
-
 
 $(document).ready(function(){
   var game = new Game();
@@ -46,6 +44,7 @@ $(document).ready(function(){
 
 
   $(document).on("click", ".card", function(){
+
     if(turn === 1){
       var cardPos = $(this).attr("alt");
       var lookingFor = pH[cardPos];
@@ -59,10 +58,12 @@ $(document).ready(function(){
       }
       else{
         for(var i = 0; i < matchCards.length; i++){
+          $('#messages').text("CPU had " + matchCards.length + " card: " + matchCards[0].name + " of " + matchCards[0].suit);
           pH.push(matchCards[i]);
           game.player.checkMatches();
         }
       }
+      $("#messages").text(checkWin());
       displayHand(pH);
       displayScore(game.player, game.cpu);
   // remember to remove our cheating
@@ -75,9 +76,10 @@ $(document).ready(function(){
 
   function cpuTurn(){
     while(turn === 2){
-      var matchCards = game.player.ask(cpuH[Math.floor(Math.random() * cpuH.length)]);
+      var randPicker = cpuH[Math.floor(Math.random() * cpuH.length)];
+      var matchCards = game.player.ask(randPicker);
       if(matchCards.length < 1){
-        $("#messages").text("CPU can Go Fish.");
+        $("#messages").text("CPU asked for " + randPicker.name + " of " + randPicker.suit + " and went Go Fish");
         game.cpu.draw(game.myDeck);
         game.cpu.checkMatches();
         turn = 1;
@@ -88,10 +90,25 @@ $(document).ready(function(){
           game.cpu.checkMatches();
         }
       }
+      $("#messages").text(checkWin());
     }
   }
 
-
-
+    function checkWin() {
+      if(game.player.hand.length === 0 || game.cpu.hand.length === 0){
+        turn = 3;
+        var winText = "";
+        if(game.player.matches > game.cpu.matches) {
+          winText = "Hooray, you won!";
+        }
+        else if (game.player.matches < game.cpu.matches) {
+          winText = "Sorry, you lost";
+        }
+        else if (game.player.matches === game.cpu.matches){
+          wintText = "You tied!";
+        }
+        return winText;
+      } 
+    }
 
 });

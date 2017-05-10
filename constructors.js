@@ -53,7 +53,6 @@ function Deck(){
   }
 }
 
-
 function Player(name){
   this.name = name;
   this.hand = [];
@@ -75,7 +74,6 @@ function Player(name){
 
   this.ask = function(card){
     var matchCards = [];
-    console.log("We are looking for the card: " + card.name)
     for(var i = 0; i < this.hand.length; i++){
       if(this.hand[i].val === card.val){
         matchCards.push(this.hand.splice(i, 1)[0]);
@@ -95,7 +93,6 @@ function Player(name){
           }
         }
         if(duplicates.length === 4){
-          console.log("*****************Getting ride of dups*********************")
           this.matches++;
           for(var k = 0; k < duplicates.length; k++){
             console.log("Removing: " + this.hand[duplicates[k]-k].name)
@@ -104,6 +101,22 @@ function Player(name){
         }
       }
     }
+
+    // this.checkWin = function() {
+    //   console.log("PLAYER ::::::::::::::: ", this.player.hand.length-1);
+    //   console.log("CPU ::::::::::::::: ", this.cpu.hand.length-1);
+    //   if(this.player.hand.length === 0 || this.cpu.hand.length === 0){
+    //     var turn = 3;
+    //     var winText = "";
+    //     if(this.player.matches > this.cpu.matches) {
+    //       winText = "Hooray, you won!";
+    //     }
+    //     else{
+    //       winText = "Sorry, you lost";
+    //     }
+    //     return winText;
+    //   } 
+    // }
 
 
 }
