@@ -53,7 +53,6 @@ function Deck(){
   }
 }
 
-
 function Player(name){
   this.name = name;
   this.hand = [];
@@ -75,7 +74,6 @@ function Player(name){
 
   this.ask = function(card){
     var matchCards = [];
-    console.log("We are looking for the card: " + card.name)
     for(var i = 0; i < this.hand.length; i++){
       if(this.hand[i].val === card.val){
         matchCards.push(this.hand.splice(i, 1)[0]);
@@ -84,7 +82,6 @@ function Player(name){
     }
     return matchCards;
   }
-
 
   this.checkMatches = function(){
       for(var i = 0; i < this.hand.length; i++){
@@ -95,7 +92,6 @@ function Player(name){
           }
         }
         if(duplicates.length === 4){
-          console.log("*****************Getting ride of dups*********************")
           this.matches++;
           for(var k = 0; k < duplicates.length; k++){
             console.log("Removing: " + this.hand[duplicates[k]-k].name)
@@ -104,6 +100,4 @@ function Player(name){
         }
       }
     }
-
-
 }

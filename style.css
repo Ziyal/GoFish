@@ -1,0 +1,81 @@
+* {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      /*background-color: blue;*/
+    }
+
+    .container {
+      background-color: white;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .background-white {
+      background-color: white;
+      padding: 20px 0px 20px 0px;
+    }
+
+    /*.play-container {
+      display: block;
+      /*margin: 5%;*/
+      width: 80%;
+      text-align: center;
+    }*/
+
+    h1 {
+      margin: 30px;
+      display: inline-block;
+    }
+
+    .fish {
+    font-size: 25px;
+    display: inline-block;
+    position: relative;
+    -webkit-animation: myfirst 5s infinite; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation: myfirst 5s infinite;
+    animation-direction: alternate; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+
+    @-webkit-keyframes myfirst {
+        0%   {left: -50px; top: 0px;}
+        50%  {left: 100px; top: 0px;}
+        100% {left: -50px; top: 0px;}
+    }
+
+    @keyframes myfirst {
+        0%   {left: -15px; top: 5px;}
+        50%  {left: 25px; top: -5px;}
+        100% {left: -15px; top: 0px;}
+    }
+
+    hr {
+        border: 0;
+      border-top: 3px double #b2b2b2;
+    }
+
+    #playerHand {
+      margin-bottom: 25px;
+    }
+
+    .scoreText {
+      font-weight: bold;
+      font-size: 20px;
+      display: inline-block;
+      margin: 25px 10px 35px 10px;
+    }
+
+    .card {
+      display: inline-block;
+      margin:8px;
+    }
+
+    #messages {
+      font-style: italic;
+    }
