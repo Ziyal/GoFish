@@ -1,4 +1,3 @@
-
 function Card(val, suit){
   var cardNames = ["Joker", "Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
 
@@ -7,11 +6,6 @@ function Card(val, suit){
   if(val < 14){
     this.name = cardNames[val];
   }
-
-  this.show = function(){
-    console.log(this.name + " of " + this.suit);
-  }
-
 }
 
 function Deck(){
@@ -26,12 +20,6 @@ function Deck(){
       for(var j = 1; j <= 13; j++){
         deck.push(new Card(j, suits[i]));
       }
-    }
-  }
-
-  this.printDeck = function(){
-    for(i = 0; i < deck.length; i++){
-      console.log(deck[i].name + " of " + deck[i].suit);
     }
   }
 
@@ -84,20 +72,20 @@ function Player(name){
   }
 
   this.checkMatches = function(){
-      for(var i = 0; i < this.hand.length; i++){
-        var duplicates = [i];
-        for(var j = i + 1; j < this.hand.length; j++){
-          if(this.hand[i].val === this.hand[j].val){
-            duplicates.push(j);
-          }
+    for(var i = 0; i < this.hand.length; i++){
+      var duplicates = [i];
+      for(var j = i + 1; j < this.hand.length; j++){
+        if(this.hand[i].val === this.hand[j].val){
+          duplicates.push(j);
         }
-        if(duplicates.length === 4){
-          this.matches++;
-          for(var k = 0; k < duplicates.length; k++){
-            console.log("Removing: " + this.hand[duplicates[k]-k].name)
-            this.hand.splice(duplicates[k] - k, 1);
-          }
+      }
+      if(duplicates.length === 4){
+        this.matches++;
+        for(var k = 0; k < duplicates.length; k++){
+          console.log("Removing: " + this.hand[duplicates[k]-k].name)
+          this.hand.splice(duplicates[k] - k, 1);
         }
       }
     }
+  }
 }

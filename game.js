@@ -1,4 +1,3 @@
-
 function Game(){
   this.player = new Player("Player");
   this.cpu = new Player("CPU");
@@ -25,7 +24,6 @@ function displayHand(pH){
 }
 
 function displayScore(player, cpu){
-  console.log("appendstuff")
   $("#scores").empty();
   $("#scores").append("<p class='scoreText'>" + player.name + " score: " + player.matches + "</p>");
   $("#scores").append("<p class='scoreText'>" + cpu.name + " score: " + cpu.matches + "</p>");
@@ -36,12 +34,9 @@ $(document).ready(function(){
   var pH = game.player.hand;
   var cpuH = game.cpu.hand;
   var turn = 1;
-  game.cpu.showHand();
 
   displayHand(pH);
   displayScore(game.player, game.cpu);
-
-
 
   $(document).on("click", ".card", function(){
 
@@ -66,11 +61,6 @@ $(document).ready(function(){
       $("#messages").text(checkWin());
       displayHand(pH);
       displayScore(game.player, game.cpu);
-  // remember to remove our cheating
-      console.log(" ")
-      console.log(" ")
-      console.log("**********************************************");
-      game.cpu.showHand();
     }
   });
 
@@ -110,5 +100,4 @@ $(document).ready(function(){
         return winText;
       } 
     }
-
 });
