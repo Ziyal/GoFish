@@ -1,76 +1,76 @@
 * {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Chewy', cursive;
+}
 
-    body {
-      width: 75%;
-      display: block;
-      margin: 0 auto;
-    }
+body {
+  /*width: 75%;*/
+  display: block;
+  margin: 0 auto;
+  background-color: blue;
+  background-image: url("ocean.jpg");
+  width: 100%;
+}
 
-    .container {
-      background-color: white;
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-      text-align: center;
-    }
-    
-    .background-white {
-      background-color: white;
-      padding: 20px 0px 20px 0px;
-    }
 
-    h1 {
-      margin: 20px;
-      display: inline-block;
-    }
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid white 2px;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 50px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+}
 
-    .fish {
-    font-size: 25px;
-    display: inline-block;
-    position: relative;
-    -webkit-animation: myfirst 5s infinite; /* Safari 4.0 - 8.0 */
-    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
-    animation: myfirst 5s infinite;
-    animation-direction: alternate; 
-    margin-top: 15px;
-    margin-bottom: 15px;
-    }
+h1 {
+  margin: 20px 0px 0px 0px;
+  display: inline-block;
+  font-size: 40px;
+}
 
-    @-webkit-keyframes myfirst {
-        0%   {left: -50px; top: 0px;}
-        50%  {left: 100px; top: 0px;}
-        100% {left: -50px; top: 0px;}
-    }
+.fish {
+font-size: 25px;
+display: inline-block;
+position: relative;
+-webkit-animation: myfirst 5s infinite; /* Safari 4.0 - 8.0 */
+-webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+animation: myfirst 5s infinite;
+animation-direction: alternate; 
+margin-top: 15px;
+margin-bottom: 15px;
+}
 
-    @keyframes myfirst {
-        0%   {left: -15px; top: 5px;}
-        50%  {left: 25px; top: -5px;}
-        100% {left: -15px; top: 0px;}
-    }
+@-webkit-keyframes myfirst {
+    0%   {left: -50px; top: 0px;}
+    50%  {left: 100px; top: 0px;}
+    100% {left: -50px; top: 0px;}
+}
 
-    hr {
-        border: 0;
-      border-top: 3px double #b2b2b2;
-    }
+@keyframes myfirst {
+    0%   {left: -15px; top: 5px;}
+    50%  {left: 25px; top: -5px;}
+    100% {left: -15px; top: 0px;}
+}
 
-    #playerHand {
-      margin-bottom: 25px;
-    }
+#playerHand {
+  margin-bottom: 25px;
+}
 
-    .scoreText {
-      font-weight: bold;
-      font-size: 20px;
-      display: inline-block;
-      margin: 25px 10px 35px 10px;
-    }
+.scoreText {
+  font-weight: bold;
+  font-size: 20px;
+  display: inline-block;
+  margin: 25px 10px 35px 10px;
+}
 
-    .card {
-      display: inline-block;
-      margin:8px;
-    }
+.card {
+  display: inline-block;
+  margin:8px;
+}
 
-    #messages {
-      font-style: italic;
-    }
+#messages {
+  font-style: italic;
+}
